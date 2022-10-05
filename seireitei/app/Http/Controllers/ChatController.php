@@ -33,16 +33,16 @@ class ChatController extends Controller
     public function store(StoreChatRequest $request)
     {
         $data = $this->prepareStoreData($request);
-        if ($data['user_id'] == $data['otherUserId']) {
+        if ($data['user_id'] === $data['otherUserId']) {
             return $this->error(null, 'You cannot chat with yourself', 400);
         }
         $previousChat = $this->getPreviousChat($data['otherUserId']);
-        if ($previousChat == null) {
+        if ($previousChat === null) {
             $chat = Chat::create($data['data']);
             $chat->chatMembers()->createMany(
                 [
                     [
-                        'user_id' => $data['userId'],
+                        'user_id' => $data['user_id'],
                     ],
                     [
                         'user_id' => $data['otherUserId']
@@ -69,6 +69,12 @@ class ChatController extends Controller
         $data = $request->validated();
         $otherUserId = (int)$data['user_id'];
         unset($data['user_id']);
+        if ($request->has('is_group_chat') && $data['is_group_chat'] === true) {
+
+            $data['is_group_chat'] = $data['is_group_chat'];
+        } else {
+            $data['is_group_chat'] = false;
+        }
         $data['created_by'] = auth()->user()->id;
 
         return [

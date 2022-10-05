@@ -4,6 +4,7 @@ import 'package:zanpakuto/models/chat_model.dart';
 import 'package:zanpakuto/models/app_response.dart';
 import 'package:zanpakuto/repositories/repositories.dart';
 import 'package:zanpakuto/utils/dio_client/dio_client.dart';
+import 'package:zanpakuto/utils/utils.dart';
 
 class ChatRepository extends BaseChatRepository {
   final Dio _dioClient;
@@ -16,6 +17,8 @@ class ChatRepository extends BaseChatRepository {
       Endpoints.createChat,
       data: request.toJson(),
     );
+    vLog(response.data);
+    // vLog(response.data);
     return AppResponse<ChatEntity?>.fromJson(
         response.data,
         (dynamic json) => response.data['success'] && json != null

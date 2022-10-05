@@ -43,9 +43,7 @@ class _ChatPageState extends State<ChatPage> {
               listener: (context, state) {},
               builder: (context, state) {
                 final chat = state.selectedChat;
-                vLog("message");
                 vLog(chat);
-                vLog("message");
                 // vLog(state.chats);
                 return Text(chat == null
                     ? "N/A"
@@ -57,7 +55,7 @@ class _ChatPageState extends State<ChatPage> {
             builder: (context, state) {
               // vLog(state.chatMessages);
               return DashChat(
-                currentUser: user,
+                currentUser: authBloc.state.user!.toChatUser,
                 onSend: (ChatMessage chatMessage) {
                   chatBloc
                       .add(SendMessage(state.selectedChat!.id, chatMessage));

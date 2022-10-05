@@ -13,7 +13,7 @@ class ChatMessageEntity with _$ChatMessageEntity {
   factory ChatMessageEntity({
     required int id,
     @JsonKey(name: "chat_id") required int chatId,
-    @JsonKey(name: "user_id") required int userId,
+    @JsonKey(name: "sent_by") required int userId,
     required String message,
     @JsonKey(name: "created_at") required String createdAt,
     @JsonKey(name: "updated_at") required String updatedAt,

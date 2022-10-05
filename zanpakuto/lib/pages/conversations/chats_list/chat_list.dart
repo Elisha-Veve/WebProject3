@@ -8,11 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:zanpakuto/blocs/blocs.dart';
 import 'package:zanpakuto/blocs/chat/chat_bloc.dart';
 import 'package:zanpakuto/blocs/user/user_bloc.dart';
-import 'package:zanpakuto/constants/controllers.dart';
 import 'package:zanpakuto/models/models.dart';
 import 'package:zanpakuto/pages/conversations/chat_page/chat_page.dart';
 import 'package:zanpakuto/pages/startup_container.dart';
-import 'package:zanpakuto/routes/routes.dart';
 import 'package:zanpakuto/utils/utils.dart';
 
 class ChatList extends StatelessWidget {
@@ -94,6 +92,7 @@ class ChatList extends StatelessWidget {
               vLog(user);
               vLog("message");
               context.read<ChatBloc>().add(UserSelected(user));
+              // context.read<ChatBloc>().add()
               vLog(context.read<ChatBloc>().state);
               vLog("end message");
               Navigator.pushReplacement(

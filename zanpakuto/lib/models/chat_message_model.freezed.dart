@@ -23,7 +23,7 @@ mixin _$ChatMessageEntity {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: "chat_id")
   int get chatId => throw _privateConstructorUsedError;
-  @JsonKey(name: "user_id")
+  @JsonKey(name: "sent_by")
   int get userId => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   @JsonKey(name: "created_at")
@@ -46,7 +46,7 @@ abstract class $ChatMessageEntityCopyWith<$Res> {
   $Res call(
       {int id,
       @JsonKey(name: "chat_id") int chatId,
-      @JsonKey(name: "user_id") int userId,
+      @JsonKey(name: "sent_by") int userId,
       String message,
       @JsonKey(name: "created_at") String createdAt,
       @JsonKey(name: "updated_at") String updatedAt,
@@ -124,7 +124,7 @@ abstract class _$$_ChatMessageEntityCopyWith<$Res>
   $Res call(
       {int id,
       @JsonKey(name: "chat_id") int chatId,
-      @JsonKey(name: "user_id") int userId,
+      @JsonKey(name: "sent_by") int userId,
       String message,
       @JsonKey(name: "created_at") String createdAt,
       @JsonKey(name: "updated_at") String updatedAt,
@@ -194,7 +194,7 @@ class _$_ChatMessageEntity extends _ChatMessageEntity {
   _$_ChatMessageEntity(
       {required this.id,
       @JsonKey(name: "chat_id") required this.chatId,
-      @JsonKey(name: "user_id") required this.userId,
+      @JsonKey(name: "sent_by") required this.userId,
       required this.message,
       @JsonKey(name: "created_at") required this.createdAt,
       @JsonKey(name: "updated_at") required this.updatedAt,
@@ -210,7 +210,7 @@ class _$_ChatMessageEntity extends _ChatMessageEntity {
   @JsonKey(name: "chat_id")
   final int chatId;
   @override
-  @JsonKey(name: "user_id")
+  @JsonKey(name: "sent_by")
   final int userId;
   @override
   final String message;
@@ -272,7 +272,7 @@ abstract class _ChatMessageEntity extends ChatMessageEntity {
   factory _ChatMessageEntity(
       {required final int id,
       @JsonKey(name: "chat_id") required final int chatId,
-      @JsonKey(name: "user_id") required final int userId,
+      @JsonKey(name: "sent_by") required final int userId,
       required final String message,
       @JsonKey(name: "created_at") required final String createdAt,
       @JsonKey(name: "updated_at") required final String updatedAt,
@@ -288,7 +288,7 @@ abstract class _ChatMessageEntity extends ChatMessageEntity {
   @JsonKey(name: "chat_id")
   int get chatId;
   @override
-  @JsonKey(name: "user_id")
+  @JsonKey(name: "sent_by")
   int get userId;
   @override
   String get message;

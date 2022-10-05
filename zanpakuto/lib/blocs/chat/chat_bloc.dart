@@ -43,8 +43,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       vLog(event.user);
       vLog("Message from chat bloc");
       emit(state.copyWith(otherUserId: event.user.id));
-      vLog(state.otherUserId);
-      vLog("Message from chat bloc 3");
+      // emit(state.copyWith(selectedChat: event.user));
     });
 
     on<GetChatMessage>((event, emit) async {
@@ -59,8 +58,9 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
         final chatResult = await _chatRepository.createChat(
           CreateChatRequest(userId: state.otherUserId!),
         );
-        vLog(chatResult);
         vLog("Message from chat bloc 5");
+        vLog(chatResult);
+        vLog("Message from chat bloc 6");
         if (chatResult.success) {
           vLog(chatResult.data);
           chat = chatResult.data;
