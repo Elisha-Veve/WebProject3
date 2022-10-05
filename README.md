@@ -1,1 +1,4 @@
 # Web-Project-3
+
+BACKEND - LARAVEL
+FRONTEND - FLUTTER
