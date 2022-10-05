@@ -9,6 +9,7 @@ part 'chat_model.g.dart';
 class ChatEntity with _$ChatEntity {
   factory ChatEntity({
     required int id,
+    required String? name,
     @JsonKey(name: "created_at") required DateTime createdAt,
     @JsonKey(name: "updated_at") required DateTime updatedAt,
     @JsonKey(name: "is_group_chat") required bool isGroupChat,

@@ -71,8 +71,8 @@ class MyApp extends StatelessWidget {
           theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
           themeMode: ThemeMode.system,
-          // home: const LoginScreen(),
-          home: const HomePage(),
+          home: const LoginScreen(),
+          // home: const HomePage(),
         ),
       ),
     );

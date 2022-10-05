@@ -21,6 +21,7 @@ ChatEntity _$ChatEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ChatEntity {
   int get id => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "created_at")
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: "updated_at")
@@ -44,6 +45,7 @@ abstract class $ChatEntityCopyWith<$Res> {
       _$ChatEntityCopyWithImpl<$Res>;
   $Res call(
       {int id,
+      String? name,
       @JsonKey(name: "created_at") DateTime createdAt,
       @JsonKey(name: "updated_at") DateTime updatedAt,
       @JsonKey(name: "is_group_chat") bool isGroupChat,
@@ -64,6 +66,7 @@ class _$ChatEntityCopyWithImpl<$Res> implements $ChatEntityCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? isGroupChat = freezed,
@@ -75,6 +78,10 @@ class _$ChatEntityCopyWithImpl<$Res> implements $ChatEntityCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -119,6 +126,7 @@ abstract class _$$_ChatEntityCopyWith<$Res>
   @override
   $Res call(
       {int id,
+      String? name,
       @JsonKey(name: "created_at") DateTime createdAt,
       @JsonKey(name: "updated_at") DateTime updatedAt,
       @JsonKey(name: "is_group_chat") bool isGroupChat,
@@ -142,6 +150,7 @@ class __$$_ChatEntityCopyWithImpl<$Res> extends _$ChatEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? isGroupChat = freezed,
@@ -153,6 +162,10 @@ class __$$_ChatEntityCopyWithImpl<$Res> extends _$ChatEntityCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -182,6 +195,7 @@ class __$$_ChatEntityCopyWithImpl<$Res> extends _$ChatEntityCopyWithImpl<$Res>
 class _$_ChatEntity implements _ChatEntity {
   _$_ChatEntity(
       {required this.id,
+      required this.name,
       @JsonKey(name: "created_at")
           required this.createdAt,
       @JsonKey(name: "updated_at")
@@ -198,6 +212,8 @@ class _$_ChatEntity implements _ChatEntity {
 
   @override
   final int id;
+  @override
+  final String? name;
   @override
   @JsonKey(name: "created_at")
   final DateTime createdAt;
@@ -219,7 +235,7 @@ class _$_ChatEntity implements _ChatEntity {
 
   @override
   String toString() {
-    return 'ChatEntity(id: $id, createdAt: $createdAt, updatedAt: $updatedAt, isGroupChat: $isGroupChat, lastMessage: $lastMessage, members: $members)';
+    return 'ChatEntity(id: $id, name: $name, createdAt: $createdAt, updatedAt: $updatedAt, isGroupChat: $isGroupChat, lastMessage: $lastMessage, members: $members)';
   }
 
   @override
@@ -228,6 +244,7 @@ class _$_ChatEntity implements _ChatEntity {
         (other.runtimeType == runtimeType &&
             other is _$_ChatEntity &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality()
@@ -242,6 +259,7 @@ class _$_ChatEntity implements _ChatEntity {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(isGroupChat),
@@ -264,6 +282,7 @@ class _$_ChatEntity implements _ChatEntity {
 abstract class _ChatEntity implements ChatEntity {
   factory _ChatEntity(
       {required final int id,
+      required final String? name,
       @JsonKey(name: "created_at")
           required final DateTime createdAt,
       @JsonKey(name: "updated_at")
@@ -279,6 +298,8 @@ abstract class _ChatEntity implements ChatEntity {
 
   @override
   int get id;
+  @override
+  String? get name;
   @override
   @JsonKey(name: "created_at")
   DateTime get createdAt;

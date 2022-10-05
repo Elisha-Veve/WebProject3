@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zanpakuto/blocs/auth/auth_bloc.dart';
 import 'package:zanpakuto/models/models.dart';
+import 'package:zanpakuto/utils/logger/logger.dart';
 
 class AppInterceptor extends Interceptor {
   static AppInterceptor? _singleton;
@@ -16,10 +17,14 @@ class AppInterceptor extends Interceptor {
   Future onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     if (!options.headers.containsKey(HttpHeaders.authorizationHeader)) {
-      final state = AuthBloc().state;
-      if (state.token != null) {
-        options.headers[HttpHeaders.authorizationHeader] =
-            'Bearer ${state.token}';
+      try {
+        final state = AuthBloc().state;
+        if (state.token != null) {
+          options.headers[HttpHeaders.authorizationHeader] =
+              'Bearer ${state.token}';
+        }
+      } on Exception catch (e) {
+        vLog(e);
       }
     }
     return handler.next(options);

@@ -27,22 +27,7 @@ class _HomePageState extends State<HomePage> {
         darkTheme: MyThemes.darkTheme,
         themeMode: ThemeMode.system,
         home: Responsive(
-          mobile: Container(
-            width: 400,
-            color: Colors.black,
-            child: SafeArea(
-                child: Stack(
-              children: [
-                localNavigator(),
-                Column(
-                  children: [
-                    Expanded(child: Container()),
-                    BottomMenu(),
-                  ],
-                ),
-              ],
-            )),
-          ),
+          mobile: Mobile(),
           tablet: Container(
             height: 400,
             color: Colors.black,
@@ -64,5 +49,26 @@ class _HomePageState extends State<HomePage> {
             ])),
           ),
         ));
+  }
+
+  Container Mobile() {
+    return Container(
+      width: 400,
+      color: Colors.black,
+      child: SafeArea(
+          child: Stack(
+        children: [
+          // localNavigator(),
+          menuController.displayBottomBar.value
+              ? Column(
+                  children: [
+                    Expanded(child: localNavigator()),
+                    BottomMenu(),
+                  ],
+                )
+              : Container(),
+        ],
+      )),
+    );
   }
 }

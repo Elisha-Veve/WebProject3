@@ -1,6 +1,5 @@
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:intl/intl.dart';
 import 'package:zanpakuto/models/models.dart';
 import 'package:zanpakuto/utils/utils.dart';
 

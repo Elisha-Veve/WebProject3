@@ -8,6 +8,7 @@ class MenuController extends GetxController {
   var activeItem = DashboardPageRoute.obs;
   var hoverItem = ''.obs;
   var isCollapsed = true.obs;
+  var displayBottomBar = true.obs;
   var index = 0.obs;
 
   changeActiveItemTo(String itemName) {
@@ -21,6 +22,14 @@ class MenuController extends GetxController {
 
   changeCollapseState(bool value) {
     isCollapsed.value = value;
+  }
+
+  hideBottomBar() {
+    displayBottomBar.value = false;
+  }
+
+  showBottomBar() {
+    displayBottomBar.value = true;
   }
 
   isActive(String itemName) => activeItem.value == itemName;

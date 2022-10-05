@@ -2,6 +2,7 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zanpakuto/blocs/blocs.dart';
+import 'package:zanpakuto/constants/controllers.dart';
 import 'package:zanpakuto/models/models.dart';
 import 'package:zanpakuto/pages/conversations/chat_page/data.dart';
 import 'package:zanpakuto/pages/startup_container.dart';
@@ -33,8 +34,12 @@ class _ChatPageState extends State<ChatPage> {
     final chatBloc = context.read<ChatBloc>();
     final authBloc = context.read<AuthBloc>();
     return StartUp(
+      onDisposed: () {
+        menuController.showBottomBar();
+      },
       onInit: () {
         chatBloc.add(const GetChatMessage());
+        menuController.hideBottomBar();
       },
       child: Scaffold(
           appBar: AppBar(
