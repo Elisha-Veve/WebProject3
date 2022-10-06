@@ -9,4 +9,5 @@ class ChatEvent with _$ChatEvent {
   const factory ChatEvent.loadMoreChatMessage() = LoadMoreChatMessage;
   const factory ChatEvent.sendMessage(int chatId, ChatMessage message) =
       SendMessage;
+  const factory ChatEvent.chatSelected(ChatEntity chat) = ChatSelected;
 }

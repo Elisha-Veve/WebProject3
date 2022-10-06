@@ -60,11 +60,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           // localNavigator(),
           menuController.displayBottomBar.value
-              ? Column(
-                  children: [
-                    Expanded(child: localNavigator()),
-                    BottomMenu(),
-                  ],
+              ? Container(
+                  color: Theme.of(context).primaryColor,
+                  child: Column(
+                    children: [
+                      Expanded(child: localNavigator()),
+                      BottomMenu(),
+                    ],
+                  ),
                 )
               : Container(),
         ],

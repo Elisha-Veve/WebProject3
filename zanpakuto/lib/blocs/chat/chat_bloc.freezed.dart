@@ -24,6 +24,7 @@ mixin _$ChatEvent {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$ChatEvent {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$ChatEvent {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$ChatEvent {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$ChatEvent {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$ChatEvent {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,12 +121,18 @@ class __$$ChatStartedCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChatStarted implements ChatStarted {
+class _$ChatStarted with DiagnosticableTreeMixin implements ChatStarted {
   const _$ChatStarted();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ChatEvent.started'));
   }
 
   @override
@@ -141,6 +153,7 @@ class _$ChatStarted implements ChatStarted {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) {
     return started();
   }
@@ -154,6 +167,7 @@ class _$ChatStarted implements ChatStarted {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) {
     return started?.call();
   }
@@ -167,6 +181,7 @@ class _$ChatStarted implements ChatStarted {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -184,6 +199,7 @@ class _$ChatStarted implements ChatStarted {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) {
     return started(this);
   }
@@ -197,6 +213,7 @@ class _$ChatStarted implements ChatStarted {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) {
     return started?.call(this);
   }
@@ -210,6 +227,7 @@ class _$ChatStarted implements ChatStarted {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -256,15 +274,23 @@ class __$$ChatResetCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChatReset implements ChatReset {
+class _$ChatReset with DiagnosticableTreeMixin implements ChatReset {
   const _$ChatReset(this.shouldResetChat);
 
   @override
   final bool? shouldResetChat;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatEvent.reset(shouldResetChat: $shouldResetChat)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatEvent.reset'))
+      ..add(DiagnosticsProperty('shouldResetChat', shouldResetChat));
   }
 
   @override
@@ -294,6 +320,7 @@ class _$ChatReset implements ChatReset {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) {
     return reset(shouldResetChat);
   }
@@ -307,6 +334,7 @@ class _$ChatReset implements ChatReset {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) {
     return reset?.call(shouldResetChat);
   }
@@ -320,6 +348,7 @@ class _$ChatReset implements ChatReset {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) {
     if (reset != null) {
@@ -337,6 +366,7 @@ class _$ChatReset implements ChatReset {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) {
     return reset(this);
   }
@@ -350,6 +380,7 @@ class _$ChatReset implements ChatReset {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) {
     return reset?.call(this);
   }
@@ -363,6 +394,7 @@ class _$ChatReset implements ChatReset {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) {
     if (reset != null) {
@@ -423,15 +455,23 @@ class __$$UserSelectedCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserSelected implements UserSelected {
+class _$UserSelected with DiagnosticableTreeMixin implements UserSelected {
   const _$UserSelected(this.user);
 
   @override
   final UserEntity user;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatEvent.userSelected(user: $user)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatEvent.userSelected'))
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
@@ -460,6 +500,7 @@ class _$UserSelected implements UserSelected {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) {
     return userSelected(user);
   }
@@ -473,6 +514,7 @@ class _$UserSelected implements UserSelected {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) {
     return userSelected?.call(user);
   }
@@ -486,6 +528,7 @@ class _$UserSelected implements UserSelected {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) {
     if (userSelected != null) {
@@ -503,6 +546,7 @@ class _$UserSelected implements UserSelected {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) {
     return userSelected(this);
   }
@@ -516,6 +560,7 @@ class _$UserSelected implements UserSelected {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) {
     return userSelected?.call(this);
   }
@@ -529,6 +574,7 @@ class _$UserSelected implements UserSelected {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) {
     if (userSelected != null) {
@@ -567,12 +613,18 @@ class __$$GetChatMessageCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GetChatMessage implements GetChatMessage {
+class _$GetChatMessage with DiagnosticableTreeMixin implements GetChatMessage {
   const _$GetChatMessage();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatEvent.getChatMessage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ChatEvent.getChatMessage'));
   }
 
   @override
@@ -593,6 +645,7 @@ class _$GetChatMessage implements GetChatMessage {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) {
     return getChatMessage();
   }
@@ -606,6 +659,7 @@ class _$GetChatMessage implements GetChatMessage {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) {
     return getChatMessage?.call();
   }
@@ -619,6 +673,7 @@ class _$GetChatMessage implements GetChatMessage {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) {
     if (getChatMessage != null) {
@@ -636,6 +691,7 @@ class _$GetChatMessage implements GetChatMessage {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) {
     return getChatMessage(this);
   }
@@ -649,6 +705,7 @@ class _$GetChatMessage implements GetChatMessage {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) {
     return getChatMessage?.call(this);
   }
@@ -662,6 +719,7 @@ class _$GetChatMessage implements GetChatMessage {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) {
     if (getChatMessage != null) {
@@ -696,12 +754,21 @@ class __$$LoadMoreChatMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadMoreChatMessage implements LoadMoreChatMessage {
+class _$LoadMoreChatMessage
+    with DiagnosticableTreeMixin
+    implements LoadMoreChatMessage {
   const _$LoadMoreChatMessage();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatEvent.loadMoreChatMessage()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ChatEvent.loadMoreChatMessage'));
   }
 
   @override
@@ -722,6 +789,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) {
     return loadMoreChatMessage();
   }
@@ -735,6 +803,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) {
     return loadMoreChatMessage?.call();
   }
@@ -748,6 +817,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) {
     if (loadMoreChatMessage != null) {
@@ -765,6 +835,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) {
     return loadMoreChatMessage(this);
   }
@@ -778,6 +849,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) {
     return loadMoreChatMessage?.call(this);
   }
@@ -791,6 +863,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) {
     if (loadMoreChatMessage != null) {
@@ -842,7 +915,7 @@ class __$$SendMessageCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SendMessage implements SendMessage {
+class _$SendMessage with DiagnosticableTreeMixin implements SendMessage {
   const _$SendMessage(this.chatId, this.message);
 
   @override
@@ -851,8 +924,17 @@ class _$SendMessage implements SendMessage {
   final ChatMessage message;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatEvent.sendMessage(chatId: $chatId, message: $message)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatEvent.sendMessage'))
+      ..add(DiagnosticsProperty('chatId', chatId))
+      ..add(DiagnosticsProperty('message', message));
   }
 
   @override
@@ -884,6 +966,7 @@ class _$SendMessage implements SendMessage {
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
   }) {
     return sendMessage(chatId, message);
   }
@@ -897,6 +980,7 @@ class _$SendMessage implements SendMessage {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
   }) {
     return sendMessage?.call(chatId, message);
   }
@@ -910,6 +994,7 @@ class _$SendMessage implements SendMessage {
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -927,6 +1012,7 @@ class _$SendMessage implements SendMessage {
     required TResult Function(GetChatMessage value) getChatMessage,
     required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
     required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
   }) {
     return sendMessage(this);
   }
@@ -940,6 +1026,7 @@ class _$SendMessage implements SendMessage {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
   }) {
     return sendMessage?.call(this);
   }
@@ -953,6 +1040,7 @@ class _$SendMessage implements SendMessage {
     TResult Function(GetChatMessage value)? getChatMessage,
     TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
     TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
     required TResult orElse(),
   }) {
     if (sendMessage != null) {
@@ -970,6 +1058,186 @@ abstract class SendMessage implements ChatEvent {
   ChatMessage get message;
   @JsonKey(ignore: true)
   _$$SendMessageCopyWith<_$SendMessage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatSelectedCopyWith<$Res> {
+  factory _$$ChatSelectedCopyWith(
+          _$ChatSelected value, $Res Function(_$ChatSelected) then) =
+      __$$ChatSelectedCopyWithImpl<$Res>;
+  $Res call({ChatEntity chat});
+
+  $ChatEntityCopyWith<$Res> get chat;
+}
+
+/// @nodoc
+class __$$ChatSelectedCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
+    implements _$$ChatSelectedCopyWith<$Res> {
+  __$$ChatSelectedCopyWithImpl(
+      _$ChatSelected _value, $Res Function(_$ChatSelected) _then)
+      : super(_value, (v) => _then(v as _$ChatSelected));
+
+  @override
+  _$ChatSelected get _value => super._value as _$ChatSelected;
+
+  @override
+  $Res call({
+    Object? chat = freezed,
+  }) {
+    return _then(_$ChatSelected(
+      chat == freezed
+          ? _value.chat
+          : chat // ignore: cast_nullable_to_non_nullable
+              as ChatEntity,
+    ));
+  }
+
+  @override
+  $ChatEntityCopyWith<$Res> get chat {
+    return $ChatEntityCopyWith<$Res>(_value.chat, (value) {
+      return _then(_value.copyWith(chat: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ChatSelected with DiagnosticableTreeMixin implements ChatSelected {
+  const _$ChatSelected(this.chat);
+
+  @override
+  final ChatEntity chat;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ChatEvent.chatSelected(chat: $chat)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatEvent.chatSelected'))
+      ..add(DiagnosticsProperty('chat', chat));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatSelected &&
+            const DeepCollectionEquality().equals(other.chat, chat));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(chat));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ChatSelectedCopyWith<_$ChatSelected> get copyWith =>
+      __$$ChatSelectedCopyWithImpl<_$ChatSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(bool? shouldResetChat) reset,
+    required TResult Function(UserEntity user) userSelected,
+    required TResult Function() getChatMessage,
+    required TResult Function() loadMoreChatMessage,
+    required TResult Function(int chatId, ChatMessage message) sendMessage,
+    required TResult Function(ChatEntity chat) chatSelected,
+  }) {
+    return chatSelected(chat);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(bool? shouldResetChat)? reset,
+    TResult Function(UserEntity user)? userSelected,
+    TResult Function()? getChatMessage,
+    TResult Function()? loadMoreChatMessage,
+    TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
+  }) {
+    return chatSelected?.call(chat);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(bool? shouldResetChat)? reset,
+    TResult Function(UserEntity user)? userSelected,
+    TResult Function()? getChatMessage,
+    TResult Function()? loadMoreChatMessage,
+    TResult Function(int chatId, ChatMessage message)? sendMessage,
+    TResult Function(ChatEntity chat)? chatSelected,
+    required TResult orElse(),
+  }) {
+    if (chatSelected != null) {
+      return chatSelected(chat);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatStarted value) started,
+    required TResult Function(ChatReset value) reset,
+    required TResult Function(UserSelected value) userSelected,
+    required TResult Function(GetChatMessage value) getChatMessage,
+    required TResult Function(LoadMoreChatMessage value) loadMoreChatMessage,
+    required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(ChatSelected value) chatSelected,
+  }) {
+    return chatSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ChatStarted value)? started,
+    TResult Function(ChatReset value)? reset,
+    TResult Function(UserSelected value)? userSelected,
+    TResult Function(GetChatMessage value)? getChatMessage,
+    TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
+    TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
+  }) {
+    return chatSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatStarted value)? started,
+    TResult Function(ChatReset value)? reset,
+    TResult Function(UserSelected value)? userSelected,
+    TResult Function(GetChatMessage value)? getChatMessage,
+    TResult Function(LoadMoreChatMessage value)? loadMoreChatMessage,
+    TResult Function(SendMessage value)? sendMessage,
+    TResult Function(ChatSelected value)? chatSelected,
+    required TResult orElse(),
+  }) {
+    if (chatSelected != null) {
+      return chatSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatSelected implements ChatEvent {
+  const factory ChatSelected(final ChatEntity chat) = _$ChatSelected;
+
+  ChatEntity get chat;
+  @JsonKey(ignore: true)
+  _$$ChatSelectedCopyWith<_$ChatSelected> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1154,7 +1422,7 @@ class __$$_ChatStateCopyWithImpl<$Res> extends _$ChatStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ChatState extends _ChatState {
+class _$_ChatState extends _ChatState with DiagnosticableTreeMixin {
   const _$_ChatState(
       {required final List<ChatEntity> chats,
       required final List<ChatMessageEntity> chatMessages,
@@ -1196,8 +1464,23 @@ class _$_ChatState extends _ChatState {
   final int page;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ChatState(chats: $chats, chatMessages: $chatMessages, selectedChat: $selectedChat, status: $status, message: $message, otherUserId: $otherUserId, isLastPage: $isLastPage, page: $page)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatState'))
+      ..add(DiagnosticsProperty('chats', chats))
+      ..add(DiagnosticsProperty('chatMessages', chatMessages))
+      ..add(DiagnosticsProperty('selectedChat', selectedChat))
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('otherUserId', otherUserId))
+      ..add(DiagnosticsProperty('isLastPage', isLastPage))
+      ..add(DiagnosticsProperty('page', page));
   }
 
   @override

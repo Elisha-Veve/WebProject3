@@ -33,6 +33,23 @@ class ChatList extends StatelessWidget {
           appBar: AppBar(
             title: const Text("Chats"),
           ),
+          floatingActionButton: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: BlocSelector<UserBloc, UserState, List<UserEntity>>(
+              selector: (state) {
+                return state.map(
+                    initial: (_) => [], loaded: (state) => state.users);
+              },
+              builder: (context, state) {
+                dLog(state);
+                return FloatingActionButton(
+                    onPressed: () {
+                      _showSearch(context, state);
+                    },
+                    child: const Icon(CupertinoIcons.search));
+              },
+            ),
+          ),
           body: Stack(children: [
             RefreshIndicator(
               onRefresh: () async {
@@ -58,6 +75,13 @@ class ChatList extends StatelessWidget {
                           currentUser: currentUser,
                           onPressed: (chat) {
                             vLog(chat);
+                            chatBloc.add(ChatSelected(chat));
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ChatPage(),
+                              ),
+                            );
                           });
                     },
                     itemCount: state.chats.length,
@@ -66,23 +90,6 @@ class ChatList extends StatelessWidget {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: BlocSelector<UserBloc, UserState, List<UserEntity>>(
-                selector: (state) {
-                  return state.map(
-                      initial: (_) => [], loaded: (state) => state.users);
-                },
-                builder: (context, state) {
-                  dLog(state);
-                  return FloatingActionButton(
-                      onPressed: () {
-                        _showSearch(context, state);
-                      },
-                      child: const Icon(CupertinoIcons.search));
-                },
-              ),
-            )
           ])),
     );
   }

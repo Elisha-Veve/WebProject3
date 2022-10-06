@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:dash_chat_2/dash_chat_2.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:zanpakuto/enums/enums.dart';
 import 'package:zanpakuto/models/models.dart';
@@ -54,6 +55,10 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       vLog("Message from chat bloc");
       emit(state.copyWith(otherUserId: event.user.id));
       // emit(state.copyWith(selectedChat: event.user));
+    });
+
+    on<ChatSelected>((event, emit) async {
+      emit(state.copyWith(selectedChat: event.chat));
     });
 
     on<GetChatMessage>((event, emit) async {
