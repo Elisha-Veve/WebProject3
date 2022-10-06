@@ -23,11 +23,12 @@ mixin _$ChatEntity {
   int get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: "created_at")
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  String get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  String get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: "is_group_chat")
   bool get isGroupChat => throw _privateConstructorUsedError;
+  @JsonKey(name: "last_message")
   ChatMessageEntity? get lastMessage => throw _privateConstructorUsedError;
   @JsonKey(name: "chat_members")
   List<ChatMemberEntity> get members => throw _privateConstructorUsedError;
@@ -46,10 +47,10 @@ abstract class $ChatEntityCopyWith<$Res> {
   $Res call(
       {int id,
       String? name,
-      @JsonKey(name: "created_at") DateTime createdAt,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
+      @JsonKey(name: "created_at") String createdAt,
+      @JsonKey(name: "updated_at") String updatedAt,
       @JsonKey(name: "is_group_chat") bool isGroupChat,
-      ChatMessageEntity? lastMessage,
+      @JsonKey(name: "last_message") ChatMessageEntity? lastMessage,
       @JsonKey(name: "chat_members") List<ChatMemberEntity> members});
 
   $ChatMessageEntityCopyWith<$Res>? get lastMessage;
@@ -85,11 +86,11 @@ class _$ChatEntityCopyWithImpl<$Res> implements $ChatEntityCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       isGroupChat: isGroupChat == freezed
           ? _value.isGroupChat
           : isGroupChat // ignore: cast_nullable_to_non_nullable
@@ -127,10 +128,10 @@ abstract class _$$_ChatEntityCopyWith<$Res>
   $Res call(
       {int id,
       String? name,
-      @JsonKey(name: "created_at") DateTime createdAt,
-      @JsonKey(name: "updated_at") DateTime updatedAt,
+      @JsonKey(name: "created_at") String createdAt,
+      @JsonKey(name: "updated_at") String updatedAt,
       @JsonKey(name: "is_group_chat") bool isGroupChat,
-      ChatMessageEntity? lastMessage,
+      @JsonKey(name: "last_message") ChatMessageEntity? lastMessage,
       @JsonKey(name: "chat_members") List<ChatMemberEntity> members});
 
   @override
@@ -169,11 +170,11 @@ class __$$_ChatEntityCopyWithImpl<$Res> extends _$ChatEntityCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as String,
       isGroupChat: isGroupChat == freezed
           ? _value.isGroupChat
           : isGroupChat // ignore: cast_nullable_to_non_nullable
@@ -202,7 +203,8 @@ class _$_ChatEntity implements _ChatEntity {
           required this.updatedAt,
       @JsonKey(name: "is_group_chat")
           required this.isGroupChat,
-      this.lastMessage,
+      @JsonKey(name: "last_message")
+          this.lastMessage,
       @JsonKey(name: "chat_members")
           required final List<ChatMemberEntity> members})
       : _members = members;
@@ -216,14 +218,15 @@ class _$_ChatEntity implements _ChatEntity {
   final String? name;
   @override
   @JsonKey(name: "created_at")
-  final DateTime createdAt;
+  final String createdAt;
   @override
   @JsonKey(name: "updated_at")
-  final DateTime updatedAt;
+  final String updatedAt;
   @override
   @JsonKey(name: "is_group_chat")
   final bool isGroupChat;
   @override
+  @JsonKey(name: "last_message")
   final ChatMessageEntity? lastMessage;
   final List<ChatMemberEntity> _members;
   @override
@@ -284,12 +287,13 @@ abstract class _ChatEntity implements ChatEntity {
       {required final int id,
       required final String? name,
       @JsonKey(name: "created_at")
-          required final DateTime createdAt,
+          required final String createdAt,
       @JsonKey(name: "updated_at")
-          required final DateTime updatedAt,
+          required final String updatedAt,
       @JsonKey(name: "is_group_chat")
           required final bool isGroupChat,
-      final ChatMessageEntity? lastMessage,
+      @JsonKey(name: "last_message")
+          final ChatMessageEntity? lastMessage,
       @JsonKey(name: "chat_members")
           required final List<ChatMemberEntity> members}) = _$_ChatEntity;
 
@@ -302,14 +306,15 @@ abstract class _ChatEntity implements ChatEntity {
   String? get name;
   @override
   @JsonKey(name: "created_at")
-  DateTime get createdAt;
+  String get createdAt;
   @override
   @JsonKey(name: "updated_at")
-  DateTime get updatedAt;
+  String get updatedAt;
   @override
   @JsonKey(name: "is_group_chat")
   bool get isGroupChat;
   @override
+  @JsonKey(name: "last_message")
   ChatMessageEntity? get lastMessage;
   @override
   @JsonKey(name: "chat_members")

@@ -35,7 +35,17 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       ));
     });
     on<ChatReset>((event, emit) async {
-      emit(ChatState.initial());
+      emit(state.copyWith(
+          chatMessages: [],
+          message: "",
+          status: DataStatus.initial,
+          selectedChat: null,
+          otherUserId: null,
+          isLastPage: false,
+          page: 1,
+          chats: (event.shouldResetChat != null && event.shouldResetChat!)
+              ? []
+              : state.chats));
     });
 
     on<UserSelected>((event, emit) async {

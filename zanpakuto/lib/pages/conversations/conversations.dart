@@ -15,13 +15,13 @@ class ConversationsPage extends StatelessWidget {
             tablet: Row(
               children: [
                 Expanded(flex: 3, child: ChatList()),
-                Expanded(flex: 4, child: ChatPage()),
+                // Expanded(flex: 4, child: ChatPage()),
               ],
             ),
             desktop: Row(
               children: [
                 Expanded(flex: 3, child: ChatList()),
-                Expanded(flex: 4, child: ChatPage()),
+                // Expanded(flex: 4, child: ChatPage()),
                 Container(width: 300, child: Container()),
               ],
             )),

@@ -10,10 +10,10 @@ class ChatEntity with _$ChatEntity {
   factory ChatEntity({
     required int id,
     required String? name,
-    @JsonKey(name: "created_at") required DateTime createdAt,
-    @JsonKey(name: "updated_at") required DateTime updatedAt,
+    @JsonKey(name: "created_at") required String createdAt,
+    @JsonKey(name: "updated_at") required String updatedAt,
     @JsonKey(name: "is_group_chat") required bool isGroupChat,
-    ChatMessageEntity? lastMessage,
+    @JsonKey(name: "last_message") ChatMessageEntity? lastMessage,
     @JsonKey(name: "chat_members") required List<ChatMemberEntity> members,
   }) = _ChatEntity;
 

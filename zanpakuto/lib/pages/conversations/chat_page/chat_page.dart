@@ -19,15 +19,6 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   // List<ChatMessage> messages = basicSample;
-  String getChatName(List<ChatMemberEntity> members, UserEntity currentUser) {
-    final otherMembers =
-        members.where((element) => element.userId != currentUser.id).toList();
-    if (otherMembers.isNotEmpty) {
-      vLog(otherMembers);
-      return otherMembers[0].user.username;
-    }
-    return "N/A";
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +26,8 @@ class _ChatPageState extends State<ChatPage> {
     final authBloc = context.read<AuthBloc>();
     return StartUp(
       onDisposed: () {
-        menuController.showBottomBar();
+        chatBloc.add(const ChatReset(null));
+        chatBloc.add(const ChatStarted());
       },
       onInit: () {
         chatBloc.add(const GetChatMessage());

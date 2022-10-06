@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Chat extends Model
 {
@@ -22,9 +23,9 @@ class Chat extends Model
     {
         return $this->hasMany(ChatMessage::class, 'chat_id');
     }
-    public function lastMessage(): HasMany
+    public function lastMessage(): HasOne
     {
-        return $this->hasMany(ChatMessage::class, 'chat_id')->latest();
+        return $this->hasOne(ChatMessage::class, 'chat_id')->latest();
     }
 
     public function createdBy(): BelongsTo

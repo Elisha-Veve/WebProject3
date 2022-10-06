@@ -28,7 +28,7 @@ class ChatRepository extends BaseChatRepository {
 
   @override
   Future<AppResponse<List<ChatEntity>>> getChats() async {
-    final response = await _dioClient.post(Endpoints.getChats);
+    final response = await _dioClient.get(Endpoints.getChats);
 
     return AppResponse<List<ChatEntity>>.fromJson(
         response.data,

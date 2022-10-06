@@ -60,7 +60,7 @@ class ChatController extends Controller
     {
         $userId = auth()->user()->id;
         return Chat::where('is_group_chat', false)->whereHas('chatMembers', function ($query) use ($userId, $otherUserId) {
-            $query->where('user_id', $userId)->orWhere('user_id', $otherUserId);
+            $query->where('user_id', $userId)->where('user_id', $otherUserId);
         })->first();
     }
 

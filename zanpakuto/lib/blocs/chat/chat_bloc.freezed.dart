@@ -19,7 +19,7 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
@@ -29,7 +29,7 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -39,7 +39,7 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -136,7 +136,7 @@ class _$ChatStarted implements ChatStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
@@ -149,7 +149,7 @@ class _$ChatStarted implements ChatStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -162,7 +162,7 @@ class _$ChatStarted implements ChatStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -228,6 +228,7 @@ abstract class _$$ChatResetCopyWith<$Res> {
   factory _$$ChatResetCopyWith(
           _$ChatReset value, $Res Function(_$ChatReset) then) =
       __$$ChatResetCopyWithImpl<$Res>;
+  $Res call({bool? shouldResetChat});
 }
 
 /// @nodoc
@@ -239,58 +240,82 @@ class __$$ChatResetCopyWithImpl<$Res> extends _$ChatEventCopyWithImpl<$Res>
 
   @override
   _$ChatReset get _value => super._value as _$ChatReset;
+
+  @override
+  $Res call({
+    Object? shouldResetChat = freezed,
+  }) {
+    return _then(_$ChatReset(
+      shouldResetChat == freezed
+          ? _value.shouldResetChat
+          : shouldResetChat // ignore: cast_nullable_to_non_nullable
+              as bool?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ChatReset implements ChatReset {
-  const _$ChatReset();
+  const _$ChatReset(this.shouldResetChat);
+
+  @override
+  final bool? shouldResetChat;
 
   @override
   String toString() {
-    return 'ChatEvent.reset()';
+    return 'ChatEvent.reset(shouldResetChat: $shouldResetChat)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChatReset);
+        (other.runtimeType == runtimeType &&
+            other is _$ChatReset &&
+            const DeepCollectionEquality()
+                .equals(other.shouldResetChat, shouldResetChat));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(shouldResetChat));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ChatResetCopyWith<_$ChatReset> get copyWith =>
+      __$$ChatResetCopyWithImpl<_$ChatReset>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
     required TResult Function(int chatId, ChatMessage message) sendMessage,
   }) {
-    return reset();
+    return reset(shouldResetChat);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
     TResult Function(int chatId, ChatMessage message)? sendMessage,
   }) {
-    return reset?.call();
+    return reset?.call(shouldResetChat);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -298,7 +323,7 @@ class _$ChatReset implements ChatReset {
     required TResult orElse(),
   }) {
     if (reset != null) {
-      return reset();
+      return reset(shouldResetChat);
     }
     return orElse();
   }
@@ -348,7 +373,12 @@ class _$ChatReset implements ChatReset {
 }
 
 abstract class ChatReset implements ChatEvent {
-  const factory ChatReset() = _$ChatReset;
+  const factory ChatReset(final bool? shouldResetChat) = _$ChatReset;
+
+  bool? get shouldResetChat;
+  @JsonKey(ignore: true)
+  _$$ChatResetCopyWith<_$ChatReset> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -425,7 +455,7 @@ class _$UserSelected implements UserSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
@@ -438,7 +468,7 @@ class _$UserSelected implements UserSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -451,7 +481,7 @@ class _$UserSelected implements UserSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -558,7 +588,7 @@ class _$GetChatMessage implements GetChatMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
@@ -571,7 +601,7 @@ class _$GetChatMessage implements GetChatMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -584,7 +614,7 @@ class _$GetChatMessage implements GetChatMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -687,7 +717,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
@@ -700,7 +730,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -713,7 +743,7 @@ class _$LoadMoreChatMessage implements LoadMoreChatMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -849,7 +879,7 @@ class _$SendMessage implements SendMessage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() reset,
+    required TResult Function(bool? shouldResetChat) reset,
     required TResult Function(UserEntity user) userSelected,
     required TResult Function() getChatMessage,
     required TResult Function() loadMoreChatMessage,
@@ -862,7 +892,7 @@ class _$SendMessage implements SendMessage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
@@ -875,7 +905,7 @@ class _$SendMessage implements SendMessage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? reset,
+    TResult Function(bool? shouldResetChat)? reset,
     TResult Function(UserEntity user)? userSelected,
     TResult Function()? getChatMessage,
     TResult Function()? loadMoreChatMessage,
